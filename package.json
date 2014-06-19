@@ -1,0 +1,27 @@
+{
+  "name": "Nodlen",
+  "version": "0.0.1",
+  "description": "Learn Node",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sam-stan/nodlen.git"
+  },
+  "keywords": [
+    "nodlen",
+    "nl"
+  ],
+  "author": "Sam Stanley",
+  "licenses": {
+    "type": ""
+  },
+  "dependencies": {
+    "http": "~2.6.3",
+    "express": "~0.22.1",
+    "path": "~0.10.11",
+    "socket.io": "^1.4.0"
+  },  
+  "engine": {
+    "node": "0.10.x"
+  }
+}
