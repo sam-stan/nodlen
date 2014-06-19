@@ -1,0 +1,12 @@
+<html ng-app>
+<body ng-init="cus=[{name:'sam',city:'tt'},{name:'stan',city:'tsst'},{name:'lee',city:'ss'}]">
+<script src="js/angular.min.js"></script>
+Name <br>
+<input type="text" ng-model="name" >{{ name }}
+<br>
+<ul>
+<li ng-repeat ="cu in cus | filter:name | orderBy:'city'" >{{cu.name | uppercase}}-{{cu.city| lowercase}}</li>
+</ul>
+
+</body>
+</html>

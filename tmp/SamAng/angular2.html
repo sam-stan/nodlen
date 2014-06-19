@@ -1,0 +1,12 @@
+<html ng-app>
+<body ng-init="names=['sam','stan','lee']">
+<script src="js/angular.min.js"></script>
+Name <br>
+<input type="text" ng-model="name" >{{ name }}
+<br>
+<ul>
+<li ng-repeat ="pplname in names" >{{pplname}}</li>
+</ul>
+
+</body>
+</html>

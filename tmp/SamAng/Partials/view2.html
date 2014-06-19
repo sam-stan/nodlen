@@ -1,0 +1,8 @@
+<div>
+Name <br>
+<input type="text" ng-model="city" >{{ name }}
+<br>
+<ul>
+<li ng-repeat ="cu in cus | filter:city | orderBy:'city'" >{{cu.name | uppercase}}-{{cu.city| lowercase}}</li>
+</ul>
+</div>

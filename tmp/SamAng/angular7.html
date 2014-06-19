@@ -1,0 +1,90 @@
+<html ng-app="demoApp">
+<body>
+    <div>
+<div ng-view="" ></div>
+</div>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-route.min.js"></script>
+<!--Palaceholder-->
+
+<script>
+    var demoApp = angular.module('demoApp',['ngRoute']);
+    
+    demoApp.config(function ($routeProvider){
+       $routeProvider
+       .when('/',
+   { 
+       controller:'SimpleController',
+       templateUrl:'Partials/view.html'               
+    }) .when('/view2',
+   { 
+       controller:'SimpleController',
+       templateUrl:'Partials/view2.html'               
+    }).otherwise({redirectTo:'/view'});
+    
+    });
+    
+    //Type 1
+    demoApp.controller('SimpleController',function ($scope,simplefactory){
+        $scope.cus = simplefactory.getCustomer();
+        
+         $scope.addCustomer = function(){
+            $scope.cus.push(
+             {
+                 name:$scope.newCustomer.name,
+                 city:$scope.newCustomer.city
+             }
+            );
+        };
+    });
+    
+    demoApp.factory('simplefactory',function(){        
+        var cus = [
+            {name:'sam',city:'tt'},
+            {name:'stan',city:'tsst'},
+            {name:'lee',city:'ss'}
+        ];
+        var factory = {};
+        factory.getCustomer = function(){
+            return cus; 
+        };
+        
+        factory.postCustomer = function(cus){
+//            return cus; 
+        };
+        return factory;
+    });
+//    //Type 2
+//    
+//    function SimpleController($scope){
+//        $scope.cus = [
+//            {name:'sam',city:'tt'},
+//            {name:'stan',city:'tsst'},
+//            {name:'lee',city:'ss'}
+//        ]
+//    }    
+//    demoApp.controller('SimpleController',SimpleController);
+    
+    //Type 3
+//    var controllers ={};
+//    controllers.SimpleController= function($scope){
+//        $scope.cus = [
+//            {name:'sam',city:'tt'},
+//            {name:'stan',city:'tsst'},
+//            {name:'lee',city:'ss'}
+//        ];
+//        $scope.addCustomer = function(){
+//            $scope.cus.push(
+//             {
+//                 name:$scope.newCustomer.name,
+//                 city:$scope.newCustomer.city
+//             }
+//            );
+//        };
+//    }    
+//    
+//    demoApp.controller(controllers);
+</script>
+    
+</body>
+</html>

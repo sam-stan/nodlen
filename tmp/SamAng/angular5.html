@@ -1,0 +1,48 @@
+<html ng-app="app">
+<body>
+<script src="js/angular.min.js"></script>
+
+<div ng-controller="SimpleController" >
+Name <br>
+<input type="text" ng-model="name" >{{ name }}
+<br>
+<ul ng-controller="SimpleController" >
+<li ng-repeat ="cu in cus | filter:name | orderBy:'city'" >{{cu.name | uppercase}}-{{cu.city| lowercase}}</li>
+</ul>
+</div>
+<script>
+    var demoApp = angular.module('app',[]);
+    
+    //Type 1
+//    demoApp.controller('SimpleController',function ($scope){
+//        $scope.cus = [
+//            {name:'sam',city:'tt'},
+//            {name:'stan',city:'tsst'},
+//            {name:'lee',city:'ss'}
+//        ]
+//    });
+//    //Type 2
+//    
+//    function SimpleController($scope){
+//        $scope.cus = [
+//            {name:'sam',city:'tt'},
+//            {name:'stan',city:'tsst'},
+//            {name:'lee',city:'ss'}
+//        ]
+//    }    
+//    demoApp.controller('SimpleController',SimpleController);
+    
+    //Type 3
+    var controllers ={};
+    controllers.SimpleController= function($scope){
+        $scope.cus = [
+            {name:'sam',city:'tt'},
+            {name:'stan',city:'tsst'},
+            {name:'lee',city:'ss'}
+        ]
+    }    
+    demoApp.controller(controllers);
+</script>
+    
+</body>
+</html>
